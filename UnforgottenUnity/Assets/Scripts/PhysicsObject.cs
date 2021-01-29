@@ -111,4 +111,9 @@ public class PhysicsObject : MonoBehaviour
         rb2d.position = rb2d.position + move.normalized * distance;
     }
 
+    public Vector2 GetVelocity()
+    {
+        return velocity;
+    }
+
 }
