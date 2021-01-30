@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void GoToBoss()
+    {
+        SceneManager.LoadScene("Boss");
+    }
+
     public void ExitGame()
     {
 #if UNITY_EDITOR
