@@ -126,7 +126,7 @@ public class PlayerController : PhysicsObject
 
     public void Dash()
     {
-        move.x *= dashSpeedFactor;
+        move.x = Mathf.Sign(move.x) * dashSpeedFactor;
         invincible = true;
         isDashing = true;
         animator.SetBool("isDashing", true);
@@ -164,14 +164,24 @@ public class PlayerController : PhysicsObject
     {
         if (!invincible)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //todo replace
+            Die();
         }
         
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Boundary"))
+        {
+            Damage();
+        }
+        else if (collision.CompareTag("Damage"))
         {
             Damage();
         }
