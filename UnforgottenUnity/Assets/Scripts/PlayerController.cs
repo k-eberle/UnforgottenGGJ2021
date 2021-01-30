@@ -22,6 +22,8 @@ public class PlayerController : PhysicsObject
 
     public GameObject AttackArea;
 
+    public GameObject eyelight;
+
     private bool canDoubleJump = false;
     private bool canAttack = true;
     private bool canDash = true;
@@ -108,7 +110,10 @@ public class PlayerController : PhysicsObject
         if (flipSprite)
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
+            AttackArea.transform.localPosition = new Vector3(-AttackArea.transform.localPosition.x, AttackArea.transform.localPosition.y, AttackArea.transform.localPosition.z);
+            eyelight.transform.Rotate(180, 0, 0);
         }
+        
     }
 
     public void Dash()
@@ -120,6 +125,7 @@ public class PlayerController : PhysicsObject
 
     public void Attack()
     {
+        //todo fill
         Debug.Log("Attack!");
         canAttack = false;
     }
