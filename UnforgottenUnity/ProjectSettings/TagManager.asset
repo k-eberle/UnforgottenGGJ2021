@@ -8,6 +8,7 @@ TagManager:
   - Sword
   - Boundary
   - Damage
+  - Goal
   layers:
   - Default
   - TransparentFX
