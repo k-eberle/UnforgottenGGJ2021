@@ -29,6 +29,7 @@ public class PlayerController : PhysicsObject
     private bool canAttack = true;
     private bool canDash = true;
     private bool isDashing = false;
+    private bool isDying = false;
 
     private SpriteRenderer spriteRenderer;
     public Animator animator;
@@ -43,7 +44,7 @@ public class PlayerController : PhysicsObject
     {
         this.AttackArea.GetComponent<Animator>().SetBool("attack", false);
         // velocity cannot be changed while dashing
-        if (!isDashing)
+        if (!isDashing && !isDying)
         {
             targetVelocity = Vector2.zero;
 
@@ -166,13 +167,16 @@ public class PlayerController : PhysicsObject
         if (!invincible)
         {
             //todo replace
-            Die();
+            animator.SetBool("isDying", true);
+            isDying = true;
+            StartCoroutine(Die());
         }
         
     }
 
-    public void Die()
+    public IEnumerator Die()
     {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
