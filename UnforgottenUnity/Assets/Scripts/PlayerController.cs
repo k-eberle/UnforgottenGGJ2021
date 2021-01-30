@@ -126,7 +126,7 @@ public class PlayerController : PhysicsObject
 
     public void Dash()
     {
-        move.x *= dashSpeedFactor;
+        move.x = Mathf.Sign(move.x) * dashSpeedFactor;
         invincible = true;
         isDashing = true;
         animator.SetBool("isDashing", true);

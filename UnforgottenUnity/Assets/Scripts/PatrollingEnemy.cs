@@ -11,12 +11,15 @@ public class PatrollingEnemy : MonoBehaviour
     private int currentRepetition;
     private bool moveLeft;
 
+    private Animator animator;
+
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentRepetition = 0;
         moveLeft = startLeft;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -48,7 +51,8 @@ public class PatrollingEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Sword"))
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject,.1f);
+            this.animator.SetBool("isDying", true);
         }
 
     }
