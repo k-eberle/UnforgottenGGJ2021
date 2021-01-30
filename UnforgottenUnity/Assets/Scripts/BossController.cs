@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    public float idleTime;
+
     private enum BossState
     {
         Spawning,
@@ -14,6 +16,7 @@ public class BossController : MonoBehaviour
     }
 
     private BossState state;
+    private float nextAttackTime;
 
 
     private void Start()
@@ -28,24 +31,25 @@ public class BossController : MonoBehaviour
             case BossState.Spawning:
                 break;
             case BossState.Idle:
-                StartCoroutine(ComputeNextAttack());
+                if (Time.time >= nextAttackTime)
+                    ComputeNextAttack();
                 break;
             default:
+                state = BossState.Idle;
                 break;
         }
-    }
-
-    private IEnumerator ComputeNextAttack()
-    {
-        state = BossState.WaitingForAttack;
-        Debug.Log("Waiting.");
-        yield return new WaitForSeconds(2.0f);
-        Debug.Log("Waited.");
-        state = BossState.Idle;
     }
 
     public void GoIdle()
     {
         state = BossState.Idle;
+        nextAttackTime = Time.time + idleTime;
+        Debug.Log("Starting idle");
+    }
+
+    private void ComputeNextAttack()
+    {
+        Debug.Log("Computing next attack");
+        GoIdle();
     }
 }
