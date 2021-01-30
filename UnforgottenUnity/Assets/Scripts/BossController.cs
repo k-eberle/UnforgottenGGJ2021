@@ -4,6 +4,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     public float idleTime;
+    public Animator animator;
 
     private enum BossState
     {
@@ -35,7 +36,6 @@ public class BossController : MonoBehaviour
                     ComputeNextAttack();
                 break;
             default:
-                state = BossState.Idle;
                 break;
         }
     }
@@ -50,6 +50,8 @@ public class BossController : MonoBehaviour
     private void ComputeNextAttack()
     {
         Debug.Log("Computing next attack");
-        GoIdle();
+
+        state = BossState.PuppetAttack;
+        animator.SetTrigger("PuppetAttack");
     }
 }

@@ -73,7 +73,7 @@ public class PhysicsObject : MonoBehaviour
     {
         float distance = move.magnitude;
 
-        if (distance > minMoveDistance)
+        //if (distance > minMoveDistance)
         {
             // get all colliders which are no triggers
             List<Collider2D> colliders = new List<Collider2D>();
@@ -118,8 +118,10 @@ public class PhysicsObject : MonoBehaviour
 
 
         }
-
-        rb2d.position = rb2d.position + move.normalized * distance;
+        if(distance > minMoveDistance)
+        {
+            rb2d.position = rb2d.position + move.normalized * distance;
+        }
     }
 
     public Vector2 GetVelocity()

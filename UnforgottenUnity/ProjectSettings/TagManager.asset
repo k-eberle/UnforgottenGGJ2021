@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Attack
+  - Sword
+  - Boundary
+  - Damage
   layers:
   - Default
   - TransparentFX

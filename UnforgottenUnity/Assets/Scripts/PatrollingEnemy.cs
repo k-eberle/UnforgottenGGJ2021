@@ -43,12 +43,23 @@ public class PatrollingEnemy : MonoBehaviour
         }
     }
 
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Sword"))
+        {
+            Destroy(this.gameObject);
+        }
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Test");
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<PlayerController>().Damage();
             Debug.Log("Hit!");
         }
     }
