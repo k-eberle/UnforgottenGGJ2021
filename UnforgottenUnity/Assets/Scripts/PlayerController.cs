@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : PhysicsObject
 {
@@ -157,5 +158,18 @@ public class PlayerController : PhysicsObject
     {
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+    public void Damage()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Boundary"))
+        {
+            Damage();
+        }
     }
 }
