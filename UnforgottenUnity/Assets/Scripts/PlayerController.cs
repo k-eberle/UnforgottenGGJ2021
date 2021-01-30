@@ -162,7 +162,11 @@ public class PlayerController : PhysicsObject
 
     public void Damage()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (!invincible)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
