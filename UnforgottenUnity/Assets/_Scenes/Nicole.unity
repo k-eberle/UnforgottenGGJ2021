@@ -362,11 +362,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5616340702654109479, guid: 34a23fa4568acab478440bcd0fd94cc9,
-        type: 3}
-      propertyPath: m_UseFullKinematicContacts
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5616340702654109528, guid: 34a23fa4568acab478440bcd0fd94cc9,
         type: 3}
       propertyPath: m_RootOrder
@@ -421,26 +416,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616340702654109530, guid: 34a23fa4568acab478440bcd0fd94cc9,
-        type: 3}
-      propertyPath: dashTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616340702654109530, guid: 34a23fa4568acab478440bcd0fd94cc9,
-        type: 3}
-      propertyPath: unlockedDash
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616340702654109530, guid: 34a23fa4568acab478440bcd0fd94cc9,
-        type: 3}
-      propertyPath: dashSpeedFactor
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616340702654109530, guid: 34a23fa4568acab478440bcd0fd94cc9,
-        type: 3}
-      propertyPath: unlockedDoubleJump
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5616340702654109531, guid: 34a23fa4568acab478440bcd0fd94cc9,
         type: 3}

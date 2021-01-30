@@ -75,34 +75,45 @@ public class PhysicsObject : MonoBehaviour
 
         if (distance > minMoveDistance)
         {
-            int count = rb2d.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
+            // get all colliders which are no triggers
+            List<Collider2D> colliders = new List<Collider2D>();
+            rb2d.GetAttachedColliders(colliders);
             hitBufferList.Clear();
-            for (int i = 0; i < count; i++)
+            foreach (Collider2D col in colliders)
             {
-                hitBufferList.Add(hitBuffer[i]);
-            }
-
-            for (int i = 0; i < hitBufferList.Count; i++)
-            {
-                Vector2 currentNormal = hitBufferList[i].normal;
-                if (currentNormal.y > minGroundNormalY)
+                if (!col.isTrigger)
                 {
-                    grounded = true;
-                    if (yMovement)
+                    //int count = rb2d.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
+                    int count = col.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
+
+                    for (int i = 0; i < count; i++)
                     {
-                        groundNormal = currentNormal;
-                        currentNormal.x = 0;
+                        hitBufferList.Add(hitBuffer[i]);
                     }
                 }
 
-                float projection = Vector2.Dot(velocity, currentNormal);
-                if (projection < 0)
-                {
-                    velocity = velocity - projection * currentNormal;
-                }
+                for (int i = 0; i < hitBufferList.Count; i++)
+                    {
+                        Vector2 currentNormal = hitBufferList[i].normal;
+                        if (currentNormal.y > minGroundNormalY)
+                        {
+                            grounded = true;
+                            if (yMovement)
+                            {
+                                groundNormal = currentNormal;
+                                currentNormal.x = 0;
+                            }
+                        }
 
-                float modifiedDistance = hitBufferList[i].distance - shellRadius;
-                distance = modifiedDistance < distance ? modifiedDistance : distance;
+                        float projection = Vector2.Dot(velocity, currentNormal);
+                        if (projection < 0)
+                        {
+                            velocity = velocity - projection * currentNormal;
+                        }
+
+                        float modifiedDistance = hitBufferList[i].distance - shellRadius;
+                        distance = modifiedDistance < distance ? modifiedDistance : distance;
+                    }
             }
 
 

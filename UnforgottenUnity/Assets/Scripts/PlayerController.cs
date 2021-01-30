@@ -9,17 +9,24 @@ public class PlayerController : PhysicsObject
 
     public float dashSpeedFactor = 2f;
     public float dashTime = 0.1f;
+    public float attackCooldown = 0.01f;
 
     public Vector2 move;
 
     public bool unlockedDoubleJump = false;
     public bool unlockedDash = false;
+    public bool unlockedAttack = false;
 
 
     public bool invincible = false;
 
+    public GameObject AttackArea;
+
     private bool canDoubleJump = false;
+    private bool canAttack = true;
+    private bool canDash = true;
     private bool isDashing = false;
+
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
@@ -35,6 +42,11 @@ public class PlayerController : PhysicsObject
         if (!isDashing)
         {
             targetVelocity = Vector2.zero;
+
+            if (grounded)
+            {
+                this.canDash = true;
+            }
 
             if (this.grounded && this.unlockedDoubleJump)
             {
@@ -67,19 +79,25 @@ public class PlayerController : PhysicsObject
             }
 
             //dash
-            if (Input.GetButtonDown("Fire1") && !isDashing && unlockedDash)
+            if (Input.GetButtonDown("Fire1") && !isDashing && canDash && unlockedDash)
             {
-                //if (move.x != 0)
+                if (move.x != 0)
                 {
-                    move.x *= dashSpeedFactor;
-                    invincible = true;
+                    Dash();
                     StartCoroutine(AfterDash());
-                    isDashing = true;
+                    
                 }
                 // todo animation
             }
 
             targetVelocity = move * maxSpeed;
+
+            //attack
+            if (Input.GetButtonDown("Fire2") && canAttack && unlockedAttack)
+            {
+                Attack();
+                StartCoroutine(AttackCooldown());
+            }
         }
 
     }
@@ -95,12 +113,27 @@ public class PlayerController : PhysicsObject
 
     public void Dash()
     {
-
+        move.x *= dashSpeedFactor;
+        invincible = true;
+        isDashing = true;
     }
+
+    public void Attack()
+    {
+        Debug.Log("Attack!");
+        canAttack = false;
+    }
+
     IEnumerator AfterDash()
     {
         yield return new WaitForSeconds(dashTime);
         invincible = false;
         isDashing = false;
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 }
