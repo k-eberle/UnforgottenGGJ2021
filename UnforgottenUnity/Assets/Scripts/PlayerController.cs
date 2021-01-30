@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : PhysicsObject
 {
@@ -22,22 +23,25 @@ public class PlayerController : PhysicsObject
 
     public GameObject AttackArea;
 
+    public GameObject eyelight;
+
     private bool canDoubleJump = false;
     private bool canAttack = true;
     private bool canDash = true;
     private bool isDashing = false;
 
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    public Animator animator;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     protected override void ComputeVelocity()
     {
+        this.AttackArea.GetComponent<Animator>().SetBool("attack", false);
         // velocity cannot be changed while dashing
         if (!isDashing)
         {
@@ -92,11 +96,16 @@ public class PlayerController : PhysicsObject
 
             targetVelocity = move * maxSpeed;
 
+
+            animator.SetFloat("vertical_movent", velocity.y);
+
+
             //attack
             if (Input.GetButtonDown("Fire2") && canAttack && unlockedAttack)
             {
                 Attack();
                 StartCoroutine(AttackCooldown());
+                ResetAttackAnimation();
             }
         }
 
@@ -108,7 +117,11 @@ public class PlayerController : PhysicsObject
         if (flipSprite)
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
+            AttackArea.transform.localPosition = new Vector3(-AttackArea.transform.localPosition.x, AttackArea.transform.localPosition.y, AttackArea.transform.localPosition.z);
+            AttackArea.GetComponent<SpriteRenderer>().flipX = !AttackArea.GetComponent<SpriteRenderer>().flipX;
+            eyelight.transform.Rotate(180, 0, 0);
         }
+        
     }
 
     public void Dash()
@@ -116,11 +129,14 @@ public class PlayerController : PhysicsObject
         move.x *= dashSpeedFactor;
         invincible = true;
         isDashing = true;
+        animator.SetBool("isDashing", true);
     }
 
     public void Attack()
     {
+        //todo fill
         Debug.Log("Attack!");
+        this.AttackArea.GetComponent<Animator>().SetBool("attack", true);
         canAttack = false;
     }
 
@@ -129,11 +145,31 @@ public class PlayerController : PhysicsObject
         yield return new WaitForSeconds(dashTime);
         invincible = false;
         isDashing = false;
+        animator.SetBool("isDashing", false);
+    }
+
+    IEnumerator ResetAttackAnimation()
+    {
+        yield return new WaitForSeconds(.1f);
+        this.AttackArea.GetComponent<Animator>().SetBool("attack", false);
     }
 
     IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+    public void Damage()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Boundary"))
+        {
+            Damage();
+        }
     }
 }
