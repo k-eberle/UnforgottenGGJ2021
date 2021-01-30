@@ -206,15 +206,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
-  gravityModifier: 1
+  gravityModifier: 3
   maxSpeed: 7
-  jumpTakeOffSpeed: 7
+  jumpTakeOffSpeed: 10
   dashSpeedFactor: 5
   dashTime: 0.1
   attackCooldown: 0.5
   move: {x: 0, y: 0}
   unlockedDoubleJump: 1
-  unlockedDash: 1
+  unlockedDash: 0
   unlockedAttack: 1
   invincible: 0
   AttackArea: {fileID: 1794873554}
