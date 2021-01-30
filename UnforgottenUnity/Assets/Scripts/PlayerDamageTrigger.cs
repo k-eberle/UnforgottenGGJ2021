@@ -14,6 +14,12 @@ public class PlayerDamageTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
+        {
             Debug.Log("Player hit!");
+
+            PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
+            if (controller)
+                controller.Damage();
+        }
     }
 }
