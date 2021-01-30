@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SlimeControlller : MonoBehaviour
+public class PatrollingEnemy : MonoBehaviour
 {
     public float speed;
     public int repetitions;
@@ -40,6 +40,16 @@ public class SlimeControlller : MonoBehaviour
         {
             currentRepetition = 0;
             moveLeft = !moveLeft;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Test");
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Hit!");
         }
     }
 }
