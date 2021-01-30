@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SlimeControlller : MonoBehaviour
+public class PatrollingEnemy : MonoBehaviour
 {
     public float speed;
     public int repetitions;
@@ -43,11 +43,23 @@ public class SlimeControlller : MonoBehaviour
         }
     }
 
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Sword"))
         {
             Destroy(this.gameObject);
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Test");
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Hit!");
         }
     }
 }
