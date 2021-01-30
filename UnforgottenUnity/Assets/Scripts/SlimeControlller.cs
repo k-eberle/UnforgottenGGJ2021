@@ -42,4 +42,12 @@ public class SlimeControlller : MonoBehaviour
             moveLeft = !moveLeft;
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Sword"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

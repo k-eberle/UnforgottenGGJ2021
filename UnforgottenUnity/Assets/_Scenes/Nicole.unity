@@ -2009,7 +2009,7 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 2800000, guid: b87212bfe013a4d44a822c2a0c16f01d, type: 3}
+    m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
@@ -6889,6 +6889,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1794873556, guid: 34a23fa4568acab478440bcd0fd94cc9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.643229
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794873556, guid: 34a23fa4568acab478440bcd0fd94cc9, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.3216145
+      objectReference: {fileID: 0}
     - target: {fileID: 5616340702654109528, guid: 34a23fa4568acab478440bcd0fd94cc9,
         type: 3}
       propertyPath: m_RootOrder

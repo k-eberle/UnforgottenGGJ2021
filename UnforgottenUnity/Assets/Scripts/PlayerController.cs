@@ -30,16 +30,17 @@ public class PlayerController : PhysicsObject
     private bool isDashing = false;
 
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    public Animator animator;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     protected override void ComputeVelocity()
     {
+        this.AttackArea.GetComponent<Animator>().SetBool("attack", false);
         // velocity cannot be changed while dashing
         if (!isDashing)
         {
@@ -94,11 +95,16 @@ public class PlayerController : PhysicsObject
 
             targetVelocity = move * maxSpeed;
 
+
+            animator.SetFloat("vertical_movent", velocity.y);
+
+
             //attack
             if (Input.GetButtonDown("Fire2") && canAttack && unlockedAttack)
             {
                 Attack();
                 StartCoroutine(AttackCooldown());
+                ResetAttackAnimation();
             }
         }
 
@@ -111,6 +117,7 @@ public class PlayerController : PhysicsObject
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
             AttackArea.transform.localPosition = new Vector3(-AttackArea.transform.localPosition.x, AttackArea.transform.localPosition.y, AttackArea.transform.localPosition.z);
+            AttackArea.GetComponent<SpriteRenderer>().flipX = !AttackArea.GetComponent<SpriteRenderer>().flipX;
             eyelight.transform.Rotate(180, 0, 0);
         }
         
@@ -121,12 +128,14 @@ public class PlayerController : PhysicsObject
         move.x *= dashSpeedFactor;
         invincible = true;
         isDashing = true;
+        animator.SetBool("isDashing", true);
     }
 
     public void Attack()
     {
         //todo fill
         Debug.Log("Attack!");
+        this.AttackArea.GetComponent<Animator>().SetBool("attack", true);
         canAttack = false;
     }
 
@@ -135,6 +144,13 @@ public class PlayerController : PhysicsObject
         yield return new WaitForSeconds(dashTime);
         invincible = false;
         isDashing = false;
+        animator.SetBool("isDashing", false);
+    }
+
+    IEnumerator ResetAttackAnimation()
+    {
+        yield return new WaitForSeconds(.1f);
+        this.AttackArea.GetComponent<Animator>().SetBool("attack", false);
     }
 
     IEnumerator AttackCooldown()
