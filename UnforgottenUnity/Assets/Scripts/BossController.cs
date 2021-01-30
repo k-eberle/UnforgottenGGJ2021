@@ -56,13 +56,10 @@ public class BossController : MonoBehaviour
     {
         state = BossState.Idle;
         nextAttackTime = Time.time + idleTime;
-        Debug.Log("Starting idle");
     }
 
     private void ComputeNextAttack()
     {
-        Debug.Log("Computing next attack");
-
         state = BossState.Attacking;
 
         //animator.SetTrigger("SmashAttack");
@@ -74,60 +71,69 @@ public class BossController : MonoBehaviour
         {
             if (r < 0.33f)
             {
-                animator.SetTrigger("PuppetAttack");
-                lastAttack = BossAttack.Puppet;
+                DoPuppetAttack();
             }
-            if (r < 0.66f)
+            else if (r < 0.66f)
             {
-                animator.SetTrigger("ClapAttack");
-                lastAttack = BossAttack.Clap;
+                DoClapAttack();
             }
             else
             {
-                animator.SetTrigger("SmashAttack");
-                lastAttack = BossAttack.Smash;
+                DoSmashAttack();
             }
         }
         else if (lastAttack == BossAttack.Puppet)
         {
             if (r < 0.5f)
             {
-                animator.SetTrigger("ClapAttack");
-                lastAttack = BossAttack.Clap;
+                DoClapAttack();
             }
             else
             {
-                animator.SetTrigger("SmashAttack");
-                lastAttack = BossAttack.Smash;
+                DoSmashAttack();
             }
         }
         else if (lastAttack == BossAttack.Clap)
         {
             if (r < 0.5f)
             {
-                animator.SetTrigger("PuppetAttack");
-                lastAttack = BossAttack.Puppet;
+                DoPuppetAttack();
             }
             else
             {
-                animator.SetTrigger("SmashAttack");
-                lastAttack = BossAttack.Smash;
+                DoSmashAttack();
             }
         }
         else if (lastAttack == BossAttack.Smash)
         {
             if (r < 0.5f)
             {
-                animator.SetTrigger("PuppetAttack");
-                lastAttack = BossAttack.Puppet;
+                DoPuppetAttack();
             }
             else
             {
-                animator.SetTrigger("ClapAttack");
-                lastAttack = BossAttack.Clap;
+                DoClapAttack();
             }
         }
 
+    }
+
+    private void DoPuppetAttack()
+    {
+        animator.SetTrigger("PuppetAttack");
+        lastAttack = BossAttack.Puppet;
+    }
+
+    private void DoClapAttack()
+    {
+        animator.SetTrigger("ClapAttack");
+        lastAttack = BossAttack.Clap;
+    }
+
+    private void DoSmashAttack()
+    {
+        animator.SetTrigger("SmashAttack");
+        lastAttack = BossAttack.Smash;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
