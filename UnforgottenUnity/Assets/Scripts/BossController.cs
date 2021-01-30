@@ -4,18 +4,33 @@ public class BossController : MonoBehaviour
 {
     private enum BossState
     {
-
+        Start,
+        Spawning,
+        Idle
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private BossState state;
+
+
+    private void Start()
     {
-        
+        state = BossState.Start;
+    }
+    
+    private void Update()
+    {
+        switch (state)
+        {
+            case BossState.Start:
+                AnimateSpawn();
+                break;
+            default:
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AnimateSpawn()
     {
-        
+
     }
 }
