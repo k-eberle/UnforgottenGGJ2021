@@ -29,8 +29,7 @@ public class SlimeControlller : MonoBehaviour
             direction = Vector2.right;
 
         transform.position = transform.position + speed * Time.deltaTime * direction;
-
-        spriteRenderer.flipX = !moveLeft;
+        transform.localScale = new Vector3(moveLeft ? 1 : -1, 1, 1);
     }
 
     public void AnimationEnd()

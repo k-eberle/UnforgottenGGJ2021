@@ -10,6 +10,15 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
 
+    private void Awake()
+    {
+        if (!player)
+        {
+            Debug.LogError("CameraController: Link to Player not set!");
+            this.enabled = false;
+        }
+    }
+
     private void Update()
     {
         Vector2 target = (Vector2)player.transform.position + leadingDistance * player.GetVelocity().normalized;
