@@ -186,5 +186,9 @@ public class PlayerController : PhysicsObject
         {
             Damage();
         }
+        else if (collision.CompareTag("Goal"))
+        {
+            GameObject.FindObjectOfType<LevelManager>().ShowNextText();
+        }
     }
 }
