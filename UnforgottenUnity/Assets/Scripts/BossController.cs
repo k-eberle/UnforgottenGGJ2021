@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
     public float idleTime;
     public Animator animator;
-    public int health;
+    public int maxHealth;
+    public Image healthBarFill;
 
     private enum BossState
     {
@@ -25,12 +27,14 @@ public class BossController : MonoBehaviour
     private BossState state;
     private BossAttack lastAttack;
     private float nextAttackTime;
+    private int health;
 
 
     private void Start()
     {
         state = BossState.Spawning;
         lastAttack = BossAttack.None;
+        health = maxHealth;
     }
 
     private void Update()
@@ -131,12 +135,24 @@ public class BossController : MonoBehaviour
         if (collision.gameObject.CompareTag("Sword"))
         {
             health--;
-            Debug.Log("Health: " + health);
+            UpdateHealthbar();
         }
 
         if (health <= 0)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void UpdateHealthbar()
+    {
+        float lowerLimit = 0.094f;
+        float upperLimit = 0.901f;
+        float difference = upperLimit - lowerLimit;
+
+        float healthPercent = (float)health / maxHealth;
+        float fill = lowerLimit + healthPercent * difference;
+
+        healthBarFill.fillAmount = fill;
     }
 }
