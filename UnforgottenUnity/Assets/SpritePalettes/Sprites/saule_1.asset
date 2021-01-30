@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Stacheln3
+  m_Name: saule_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 2da2a4bd1b4c8894e92cc1f3edab5be5, type: 3}
+  m_Sprite: {fileID: -2705394246501447954, guid: 42914eb1608ba4640809e957c9727800,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
