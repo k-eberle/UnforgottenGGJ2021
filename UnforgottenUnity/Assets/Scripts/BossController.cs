@@ -1,9 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    private enum BossState
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
