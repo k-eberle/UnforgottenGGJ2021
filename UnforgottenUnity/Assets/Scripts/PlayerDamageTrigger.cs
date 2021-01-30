@@ -15,8 +15,6 @@ public class PlayerDamageTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player hit!");
-
             PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
             if (controller)
                 controller.Damage();
