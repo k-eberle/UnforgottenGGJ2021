@@ -4,6 +4,7 @@ public class BossController : MonoBehaviour
 {
     public float idleTime;
     public Animator animator;
+    public int health;
 
     private enum BossState
     {
@@ -50,11 +51,19 @@ public class BossController : MonoBehaviour
 
         state = BossState.Attacking;
 
+        animator.SetTrigger("SmashAttack");
+        return;
+
         float r = Random.Range(0.0f, 1.0f);
 
         if (r < 0.5f)
             animator.SetTrigger("PuppetAttack");
         else
             animator.SetTrigger("ClapAttack");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Boss trigger: " + collision.name);
     }
 }
