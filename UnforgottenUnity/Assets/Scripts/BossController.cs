@@ -54,9 +54,4 @@ public class BossController : MonoBehaviour
         state = BossState.PuppetAttack;
         animator.SetTrigger("PuppetAttack");
     }
-
-    public void HitPuppet()
-    {
-        Debug.Log("Hit puppet!");
-    }
 }
