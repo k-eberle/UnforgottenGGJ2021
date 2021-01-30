@@ -101,7 +101,7 @@ public class PlayerController : PhysicsObject
 
 
             //attack
-            if (Input.GetButtonDown("Fire2") && canAttack && unlockedAttack)
+            if (Input.GetButton("Fire2") && canAttack && unlockedAttack)
             {
                 Attack();
                 StartCoroutine(AttackCooldown());
