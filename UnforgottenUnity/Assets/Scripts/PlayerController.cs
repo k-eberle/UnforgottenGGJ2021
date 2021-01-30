@@ -130,6 +130,7 @@ public class PlayerController : PhysicsObject
         invincible = true;
         isDashing = true;
         animator.SetBool("isDashing", true);
+        canDash = false;
     }
 
     public void Attack()

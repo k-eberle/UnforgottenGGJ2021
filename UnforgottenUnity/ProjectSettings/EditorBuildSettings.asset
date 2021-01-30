@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Level1.unity
     guid: d8d2f16ef7c16154eabdd896d5420e19
+  - enabled: 1
+    path: Assets/_Scenes/Level2.unity
+    guid: 1deee948060e8df4eb038e5529f51a7f
+  - enabled: 1
+    path: Assets/_Scenes/Level3.unity
+    guid: fb90ea1f44fe7994aa064c9c3853444a
+  - enabled: 1
+    path: Assets/_Scenes/Boss.unity
+    guid: 715a948484358e9459e482befb688266
+  - enabled: 0
+    path: Assets/_Scenes/Nicole.unity
+    guid: 7acae9f3f8636bb43aff010b3d4b1ed2
   m_configObjects: {}
