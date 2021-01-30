@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
@@ -11,9 +10,7 @@ public class BossController : MonoBehaviour
         Spawning,
         Idle,
         WaitingForAttack,
-        PuppetAttack,
-        SmashAttack,
-        ClapAttack
+        Attacking
     }
 
     private BossState state;
@@ -24,7 +21,7 @@ public class BossController : MonoBehaviour
     {
         state = BossState.Spawning;
     }
-    
+
     private void Update()
     {
         switch (state)
@@ -51,7 +48,13 @@ public class BossController : MonoBehaviour
     {
         Debug.Log("Computing next attack");
 
-        state = BossState.PuppetAttack;
-        animator.SetTrigger("PuppetAttack");
+        state = BossState.Attacking;
+
+        float r = Random.Range(0.0f, 1.0f);
+
+        if (r < 0.5f)
+            animator.SetTrigger("PuppetAttack");
+        else
+            animator.SetTrigger("ClapAttack");
     }
 }
