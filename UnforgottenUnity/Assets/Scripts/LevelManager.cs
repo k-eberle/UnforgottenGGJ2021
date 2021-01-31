@@ -20,6 +20,9 @@ public class LevelManager : MonoBehaviour
     bool seeGUI = false;
     public bool startWithText;
 
+    private bool showAdditionalScreen = false;
+    public string additionalText = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +36,14 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (seeGUI && Input.anyKeyDown)
+        if (seeGUI && Input.anyKeyDown && !showAdditionalScreen)
         {
             DisableText();
+        }
+        else if (seeGUI && Input.anyKeyDown && showAdditionalScreen)
+        {
+            text.text = additionalText;
+            showAdditionalScreen = false;
         }
     }
 
@@ -54,6 +62,27 @@ public class LevelManager : MonoBehaviour
         }
 
         Time.timeScale = 0.0f;
+    }
+
+    public void ShowCustomText(string customText)
+    {
+        canvas.SetActive(true);
+        text.text = customText;
+        nextStoryTextIndex++;
+
+        seeGUI = true;
+
+
+        this.ItemImage.SetActive(false);
+
+        Time.timeScale = 0.0f;
+    }
+
+    public void ShowCustomTextNext(string customText)
+    {
+        showAdditionalScreen = true;
+        additionalText = customText;
+
     }
 
     public void DisableText()

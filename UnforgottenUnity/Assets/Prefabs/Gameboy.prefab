@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4182052425764950365}
   - component: {fileID: 879930348621802115}
   - component: {fileID: 529924479598251790}
+  - component: {fileID: -3994772826781254459}
   m_Layer: 0
   m_Name: Gameboy
   m_TagString: Goal
@@ -130,3 +131,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3994772826781254459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052168370041257375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddec143fa99167469b7eedf8b545aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'You unlocked Dash and DoubleJump!
+
+    Press Space in midair to Jump
+    again
+
+    Press Rightclick or Ctrl to Dash'
