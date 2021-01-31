@@ -168,7 +168,7 @@ public class PlayerController : PhysicsObject
 
     public void Damage()
     {
-        if (!invincible)
+        if (!invincible && !isDying)
         {
             //todo replace
             animator.SetBool("isDying", true);

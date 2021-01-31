@@ -16,7 +16,8 @@ public class BackgroundMusic : MonoBehaviour
     public AudioData level2Track2;
     public AudioData level3Track1;
     public AudioData level3Track2;
-    public AudioData levelBoss;
+    public AudioData levelBossTrack1;
+    public AudioData levelBossTrack2;
 
     private string activeScene;
 
@@ -53,7 +54,7 @@ public class BackgroundMusic : MonoBehaviour
         else if (scene == "Level3")
             ActivateMusic(level3Track1, level3Track2);
         else if (scene == "Boss")
-            ActivateMusic(levelBoss, null);
+            ActivateMusic(levelBossTrack1, levelBossTrack2);
         else
             ActivateMusic(null, null);
 

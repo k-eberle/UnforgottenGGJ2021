@@ -1276,11 +1276,11 @@ MonoBehaviour:
   levelMenuTack1:
     name: 
     clip: {fileID: 0}
-    volume: 1
+    volume: 0
   levelMenuTack2:
     name: 
     clip: {fileID: 0}
-    volume: 1
+    volume: 0
   level1Track1:
     name: 
     clip: {fileID: 8300000, guid: 0e24e465fd2e82c41b3e003f203acf17, type: 3}
@@ -1292,23 +1292,27 @@ MonoBehaviour:
   level2Track1:
     name: 
     clip: {fileID: 8300000, guid: 5dc9e19d57072154ea82fffb524cbef7, type: 3}
-    volume: 1
+    volume: 0.32
   level2Track2:
     name: 
     clip: {fileID: 8300000, guid: 209c195e6684f0448b036d809a71a54f, type: 3}
-    volume: 1
+    volume: 0.27
   level3Track1:
     name: 
     clip: {fileID: 8300000, guid: 2e05dd0818c8a4c4390aa87b38dfd84b, type: 3}
-    volume: 1
+    volume: 0.32
   level3Track2:
     name: 
     clip: {fileID: 8300000, guid: 6ee10ceec6cd4564488fde8a3f0310e4, type: 3}
-    volume: 1
-  levelBoss:
+    volume: 0.385
+  levelBossTrack1:
     name: 
     clip: {fileID: 8300000, guid: 7e148c9a133bb704286df86e031baa2a, type: 3}
-    volume: 1
+    volume: 0.3
+  levelBossTrack2:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
 --- !u!4 &904410963
 Transform:
   m_ObjectHideFlags: 0
