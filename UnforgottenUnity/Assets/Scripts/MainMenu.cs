@@ -1,16 +1,33 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void StartGame()
+    public void LoadLevel1()
     {
-        SceneManager.LoadScene("Level1");
+        StartCoroutine(LoadScene("Level1"));
     }
 
-    public void GoToBoss()
+    public void LoadLevel2()
     {
-        SceneManager.LoadScene("Boss");
+        StartCoroutine(LoadScene("Level2"));
+    }
+
+    public void LoadLevel3()
+    {
+        StartCoroutine(LoadScene("Level3"));
+    }
+
+    public void LoadBoss()
+    {
+        StartCoroutine(LoadScene("Boss"));
+    }
+
+    private IEnumerator LoadScene(string name)
+    {
+        yield return new WaitForSeconds(0.23f);
+        SceneManager.LoadScene(name);
     }
 
     public void ExitGame()
