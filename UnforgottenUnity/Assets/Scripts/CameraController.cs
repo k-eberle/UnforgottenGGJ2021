@@ -21,10 +21,13 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+#if false
         Vector2 target = (Vector2)player.transform.position + leadingDistance * player.GetVelocity().normalized;
         Vector3 nextPosition = Vector3.SmoothDamp(transform.position, new Vector3(target.x, target.y, transform.position.z), ref velocity, smoothTime);
         transform.position = nextPosition;
+#endif
 
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+        if (!player.IsDying())
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
     }
 }

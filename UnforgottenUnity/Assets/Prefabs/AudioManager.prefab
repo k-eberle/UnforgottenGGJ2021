@@ -146,7 +146,7 @@ MonoBehaviour:
     volume: 1
   - name: Death
     clip: {fileID: 8300000, guid: 51cbf3c67d851184bbe2bf1c2e3cc710, type: 3}
-    volume: 1
+    volume: 0.8
   - name: SlimeDeath
     clip: {fileID: 8300000, guid: 10a1b0e44809f3c4a93f6312048c341b, type: 3}
     volume: 1

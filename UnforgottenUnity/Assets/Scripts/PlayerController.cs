@@ -182,6 +182,11 @@ public class PlayerController : PhysicsObject
         
     }
 
+    public bool IsDying()
+    {
+        return isDying;
+    }
+
     public IEnumerator Die()
     {
         yield return new WaitForSeconds(1f);
