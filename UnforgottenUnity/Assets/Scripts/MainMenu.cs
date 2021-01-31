@@ -6,16 +6,19 @@ public class MainMenu : MonoBehaviour
 {
     public void LoadLevel1()
     {
+        Debug.Log("Load scene1");
         StartCoroutine(LoadScene("Level1"));
     }
 
     public void LoadLevel2()
     {
+        Debug.Log("Load scene1");
         StartCoroutine(LoadScene("Level2"));
     }
 
     public void LoadLevel3()
     {
+        Debug.Log("Load scene1");
         StartCoroutine(LoadScene("Level3"));
     }
 
