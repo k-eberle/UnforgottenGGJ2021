@@ -14,15 +14,19 @@ public class LevelManager : MonoBehaviour
 
     public GameObject ItemImage;
 
-    public Canvas canvas;
+    public GameObject canvas;
     public TMP_Text text;
 
     bool seeGUI = false;
+    public bool startWithText;
 
     // Start is called before the first frame update
     void Start()
     {
-        ShowNextText();
+        if (startWithText)
+        {
+            ShowNextText();
+        }
     }
 
 
@@ -37,7 +41,7 @@ public class LevelManager : MonoBehaviour
 
     public void ShowNextText()
     {
-        canvas.enabled = true;
+        canvas.SetActive(true);
         text.text = storyMessages[nextStoryTextIndex];
         nextStoryTextIndex++;
 
@@ -55,12 +59,16 @@ public class LevelManager : MonoBehaviour
     public void DisableText()
     {
         Time.timeScale = 1.0f;
-        canvas.enabled = false;
-        if (nextStoryTextIndex == storyMessages.Count)
-        {
-            SceneManager.LoadScene(nextScene);
-        }
+        canvas.SetActive(false);
+        //if (nextStoryTextIndex == storyMessages.Count)
+        //{
+        //    SceneManager.LoadScene(nextScene);
+        //}
     }
 
+    public void LoadNextScene()
+    {
+            SceneManager.LoadScene(nextScene);
+    }
 
 }

@@ -194,5 +194,10 @@ public class PlayerController : PhysicsObject
         {
             GameObject.FindObjectOfType<LevelManager>().ShowNextText();
         }
+        else if (collision.CompareTag("Finish"))
+        {
+            Debug.Log("Reached Finish");
+            GameObject.FindObjectOfType<LevelManager>().LoadNextScene();
+        }
     }
 }
