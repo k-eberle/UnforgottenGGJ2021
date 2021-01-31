@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     public GameObject ItemImage;
 
     public GameObject canvas;
+    public GameObject menu;
+    public GameObject dialogue;
     public TMP_Text text;
 
     bool seeGUI = false;
@@ -50,6 +52,10 @@ public class LevelManager : MonoBehaviour
         {
             text.text = additionalText;
             showAdditionalScreen = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ShowMenu();
         }
     }
 
@@ -105,6 +111,39 @@ public class LevelManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("LoadSave", 0);
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void ShowMenu()
+    {
+
+        Time.timeScale = 0.0f;
+        canvas.SetActive(true);
+        dialogue.SetActive(false);
+        menu.SetActive(true);
+    }
+
+    public void DisableMenu()
+    {
+        Time.timeScale = 1.0f;       
+        dialogue.SetActive(true);
+        menu.SetActive(false);
+        canvas.SetActive(false);
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        canvas.SetActive(true);
+        Application.Quit();
+#endif
+    }
+
+    public void LoadMenu()
+    {
+        PlayerPrefs.SetInt("LoadSave", 0);
+        SceneManager.LoadScene(0);
     }
 
     public void OnApplicationQuit()
