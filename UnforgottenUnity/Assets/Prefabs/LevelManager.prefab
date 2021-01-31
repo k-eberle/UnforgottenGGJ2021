@@ -194,6 +194,7 @@ MonoBehaviour:
   canvas: {fileID: 7209955332326816796}
   text: {fileID: 7209955332343558579}
   startWithText: 0
+  additionalText: 
 --- !u!1 &7209955332213668763
 GameObject:
   m_ObjectHideFlags: 0
