@@ -34,7 +34,10 @@ public class BossController : MonoBehaviour
     {
         state = BossState.Spawning;
         lastAttack = BossAttack.None;
+
         health = maxHealth;
+        animator.SetBool("Under66", false);
+        animator.SetBool("Under33", false);
     }
 
     private void Update()
@@ -136,12 +139,32 @@ public class BossController : MonoBehaviour
         lastAttack = BossAttack.Smash;
     }
 
+    public void PlayPuppetSound()
+    {
+        Debug.Log("PuppetSound");
+        AudioManager.PlaySound("BossPuppet");
+    }
+
+    public void PlayClapSound()
+    {
+        AudioManager.PlaySound("BossClap");
+    }
+
+    public void PlaySmashSound()
+    {
+        AudioManager.PlaySound("BossSmash");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Sword"))
         {
             health--;
             UpdateHealthbar();
+
+            animator.SetTrigger("DazeBoss");
+            animator.SetBool("Under66", 100 * health < 66 * maxHealth);
+            animator.SetBool("Under33", 100 * health < 33 * maxHealth);
         }
 
         if (health <= 0)
