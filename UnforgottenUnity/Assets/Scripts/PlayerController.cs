@@ -68,11 +68,13 @@ public class PlayerController : PhysicsObject
             if (Input.GetButtonDown("Jump") && grounded )
             {
                 velocity.y = jumpTakeOffSpeed;
+                AudioManager.PlaySound("Jump");
             }
             else if (Input.GetButtonDown("Jump") && canDoubleJump)
             {
                 velocity.y = jumpTakeOffSpeed;
                 canDoubleJump = false;
+                AudioManager.PlaySound("Jump", 0.7f);
             }
 
             else if (Input.GetButtonUp("Jump"))
@@ -132,6 +134,7 @@ public class PlayerController : PhysicsObject
         isDashing = true;
         animator.SetBool("isDashing", true);
         canDash = false;
+        AudioManager.PlaySound("Dash");
     }
 
     public void Attack()
@@ -140,6 +143,7 @@ public class PlayerController : PhysicsObject
         Debug.Log("Attack!");
         this.AttackArea.GetComponent<Animator>().SetBool("attack", true);
         canAttack = false;
+        AudioManager.PlaySound("Sword");
     }
 
     IEnumerator AfterDash()
@@ -172,6 +176,7 @@ public class PlayerController : PhysicsObject
             move = Vector2.zero;
             velocity = Vector2.zero;
             targetVelocity = Vector2.zero;
+            AudioManager.PlaySound("Death");
             StartCoroutine(Die());
         }
         
