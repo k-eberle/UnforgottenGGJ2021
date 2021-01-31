@@ -1284,11 +1284,11 @@ MonoBehaviour:
   level1Track1:
     name: 
     clip: {fileID: 8300000, guid: 0e24e465fd2e82c41b3e003f203acf17, type: 3}
-    volume: 1
+    volume: 0.36
   level1Track2:
     name: 
     clip: {fileID: 8300000, guid: 74a8113662ea0a441b38934546ed84e0, type: 3}
-    volume: 1
+    volume: 0.32
   level2Track1:
     name: 
     clip: {fileID: 8300000, guid: 5dc9e19d57072154ea82fffb524cbef7, type: 3}
