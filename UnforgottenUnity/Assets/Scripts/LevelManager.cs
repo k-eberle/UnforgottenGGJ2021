@@ -112,6 +112,7 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         canvas.SetActive(false);
+        this.seeGUI = false;
         //if (nextStoryTextIndex == storyMessages.Count)
         //{
         //    SceneManager.LoadScene(nextScene);
@@ -153,6 +154,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadMenu()
     {
+        Time.timeScale = 1.0f;
         PlayerPrefs.SetInt("LoadSave", 0);
         SceneManager.LoadScene(0);
     }

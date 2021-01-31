@@ -1972,6 +1972,16 @@ PrefabInstance:
       value: I remember that. It reminds me of a warm fireplace and dried tears. 
         Maybe it will keep me company?
       objectReference: {fileID: 0}
+    - target: {fileID: 7209955332326816768, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955332326816796, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34cee8da367407439887dad4702dad4, type: 3}
 --- !u!1 &918789389
