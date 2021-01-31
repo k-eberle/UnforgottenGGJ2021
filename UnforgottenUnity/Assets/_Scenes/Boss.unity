@@ -1096,6 +1096,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: startWithText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.data[0]
+      value: No... That cannot be... You look like...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.data[1]
+      value: No... That cannot be... You look like...
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34cee8da367407439887dad4702dad4, type: 3}
 --- !u!1 &1725303361

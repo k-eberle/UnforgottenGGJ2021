@@ -90,6 +90,17 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0.0f;
     }
 
+    public void ShowCustomText(string customText, float timer)
+    {
+        StartCoroutine(ShowCustomTextIn(customText, timer));
+    }
+
+    IEnumerator ShowCustomTextIn(string customText, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        ShowCustomText(customText);
+    }
+
     public void ShowCustomTextNext(string customText)
     {
         showAdditionalScreen = true;
