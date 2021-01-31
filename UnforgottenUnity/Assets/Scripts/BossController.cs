@@ -59,6 +59,7 @@ public class BossController : MonoBehaviour
     {
         state = BossState.Idle;
         nextAttackTime = Time.time + idleTime;
+        GameObject.FindObjectOfType<LevelManager>().ShowCustomText("No... That cannot be... You look like...");
     }
 
     private void ComputeNextAttack()
@@ -183,5 +184,11 @@ public class BossController : MonoBehaviour
         float fill = lowerLimit + healthPercent * difference;
 
         healthBarFill.fillAmount = fill;
+    }
+
+    public void OnDestroy()
+    {
+        GameObject.FindObjectOfType<LevelManager>().ShowCustomText("Was that me all along?\nHorrible, but... also comforting.\nI can handle that. I can handle myself.", 3f);
+        GameObject.FindObjectOfType<LevelManager>().ShowCustomTextNext("For the fist time in what seemed like an eternity -\nI open my eyes");
     }
 }
