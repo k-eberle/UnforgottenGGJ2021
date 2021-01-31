@@ -7,12 +7,9 @@ public class SavePoint : MonoBehaviour
     public Sprite activatedSprite;
     public GameObject lightSource;
 
-    private bool isActivated;
-
 
     private void Awake()
     {
-        isActivated = false;
         spriteRenderer.sprite = unactivatedSprite;
         lightSource.SetActive(false);
     }
@@ -22,7 +19,6 @@ public class SavePoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isActivated = true;
             spriteRenderer.sprite = activatedSprite;
             lightSource.SetActive(true);
 
