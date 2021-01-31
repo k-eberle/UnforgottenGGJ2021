@@ -210,4 +210,16 @@ public class PlayerController : PhysicsObject
             GameObject.FindObjectOfType<LevelManager>().LoadNextScene();
         }
     }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Damage"))
+        {
+            Damage();
+        }
+        else if (collision.CompareTag("Boundary"))
+        {
+            Damage();
+        }
+    }
 }
