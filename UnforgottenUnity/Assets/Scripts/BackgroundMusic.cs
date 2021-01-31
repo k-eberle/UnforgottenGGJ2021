@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    private BackgroundMusic instance;
+    private static BackgroundMusic instance;
 
     public AudioSource track1;
     public AudioSource track2;

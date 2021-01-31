@@ -13,7 +13,8 @@ public class BossController : MonoBehaviour
         Spawning,
         Idle,
         WaitingForAttack,
-        Attacking
+        Attacking,
+        Dead
     }
 
     private enum BossAttack
@@ -44,8 +45,6 @@ public class BossController : MonoBehaviour
     {
         switch (state)
         {
-            case BossState.Spawning:
-                break;
             case BossState.Idle:
                 if (Time.time >= nextAttackTime)
                     ComputeNextAttack();
@@ -53,10 +52,15 @@ public class BossController : MonoBehaviour
             default:
                 break;
         }
+
+        Debug.LogWarning(state);
     }
 
     public void GoIdle()
     {
+        if (state == BossState.Dead)
+            return;
+
         state = BossState.Idle;
         nextAttackTime = Time.time + idleTime;
     }
@@ -155,8 +159,16 @@ public class BossController : MonoBehaviour
         AudioManager.PlaySound("BossSmash");
     }
 
+    public void PlayDeathSound()
+    {
+        AudioManager.PlaySound("BossDeath");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (state == BossState.Dead)
+            return;
+
         if (collision.gameObject.CompareTag("Sword"))
         {
             health--;
@@ -169,7 +181,8 @@ public class BossController : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            animator.SetBool("Under0", true);
+            state = BossState.Dead;
         }
     }
 
@@ -190,9 +203,9 @@ public class BossController : MonoBehaviour
         GameObject.FindObjectOfType<LevelManager>().ShowCustomText("No... That cannot be... You look like...");
     }
 
-    public void OnDestroy()
+    public void AfterDeathDialogue()
     {
-        GameObject.FindObjectOfType<LevelManager>().ShowCustomText("Was that me all along?\nHorrible, but... also comforting.\nI can handle that. I can handle myself.", 3f);
         GameObject.FindObjectOfType<LevelManager>().ShowCustomTextNext("For the fist time in what seemed like an eternity -\nI open my eyes");
+        GameObject.FindObjectOfType<LevelManager>().ShowCustomText("Was that me all along?\nHorrible, but... also comforting.\nI can handle that. I can handle myself.", 3f);
     }
 }
