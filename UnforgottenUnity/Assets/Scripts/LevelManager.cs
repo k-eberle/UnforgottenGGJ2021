@@ -107,4 +107,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(nextScene);
     }
 
+    public void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("LoadSave", 0);
+    }
+
 }
