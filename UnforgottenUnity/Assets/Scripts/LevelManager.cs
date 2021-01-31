@@ -30,6 +30,12 @@ public class LevelManager : MonoBehaviour
         {
             ShowNextText();
         }
+
+        if (PlayerPrefs.GetInt("LoadSave") > 0)
+        {
+            Vector3 newPos = new Vector3(PlayerPrefs.GetFloat("SaveX"), PlayerPrefs.GetFloat("SaveY"), PlayerPrefs.GetFloat("SaveZ"));
+            GameObject.FindObjectOfType<PlayerController>().transform.position = newPos;
+        }
     }
 
 
@@ -97,7 +103,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-            SceneManager.LoadScene(nextScene);
+        PlayerPrefs.SetInt("LoadSave", 0);
+        SceneManager.LoadScene(nextScene);
     }
 
 }

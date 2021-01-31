@@ -9,6 +9,7 @@ TagManager:
   - Boundary
   - Damage
   - Goal
+  - Save
   layers:
   - Default
   - TransparentFX
