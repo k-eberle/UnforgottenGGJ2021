@@ -169,6 +169,9 @@ public class PlayerController : PhysicsObject
             //todo replace
             animator.SetBool("isDying", true);
             isDying = true;
+            move = Vector2.zero;
+            velocity = Vector2.zero;
+            targetVelocity = Vector2.zero;
             StartCoroutine(Die());
         }
         
@@ -192,6 +195,8 @@ public class PlayerController : PhysicsObject
         }
         else if (collision.CompareTag("Goal"))
         {
+            collision.gameObject.SetActive(false);
+            // todo update GUI
             GameObject.FindObjectOfType<LevelManager>().ShowNextText();
         }
         else if (collision.CompareTag("Finish"))

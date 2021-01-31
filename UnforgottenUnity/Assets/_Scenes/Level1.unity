@@ -1011,6 +1011,112 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e7147cf50642f747ad636be2af33932, type: 3}
+--- !u!1001 &897917669
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1155625861382512365, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155625861382512365, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -271.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 309.9136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 266.95337
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -168.04802
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367824, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367826, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: startWithText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.data[0]
+      value: I don't know how I ended here.  Or when.  All I can remember is this
+        consuming darkness.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.data[1]
+      value: What? What do you want? Leave me alone!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209955331813367827, guid: b34cee8da367407439887dad4702dad4,
+        type: 3}
+      propertyPath: storyMessages.Array.data[2]
+      value: I remember that. It reminds me of a warm fireplace and dried tears. 
+        Maybe it will keep me company?
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b34cee8da367407439887dad4702dad4, type: 3}
 --- !u!1 &918789389
 GameObject:
   m_ObjectHideFlags: 0
